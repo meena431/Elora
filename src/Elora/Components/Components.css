@@ -1,0 +1,217 @@
+/* ---------------- Home Carousel Section ---------------- */
+
+.carousel-slide {
+  background-position: 70% center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    background-position: right center !important;
+  }
+}
+
+.carousel-content {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .carousel-content {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.carousel-control-prev{
+  left: -65px !important;
+}
+.carousel-control-next {
+  right: -65px !important;
+}
+
+/* Fix for small screens: show arrows */
+@media (max-width: 768px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    padding: 1rem !important;
+  }
+}
+
+.carousel {
+  overflow: hidden !important;
+}
+
+.carousel-content .buton:hover {
+  background-color: black !important;
+  transition: all 0.5s ease-in-out;
+}
+.buton:hover{
+  border: 1px solid black !important;
+  background-color: black !important;
+  transition: all 0.5s ease-in-out;
+}
+.carousel-content{
+  right: -20px;
+}
+
+/*-------------- Home Collection Section ------------- */
+
+.img-cont {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-cont::before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 45px;
+  right: 45px;
+  bottom: 35px;
+  border: 10px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 6px;
+}
+
+.img-cont:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/*-------------- Shop Section ------------- */
+
+.categories .hover:hover,.categories .hover:active,.categories .hover.active{
+  color: var(--bs-warning-dim) !important;
+  transition: all 0.5s ease-in-out;
+}
+.underline-animate:hover{
+  color: var(--bs-warning-dim) !important;
+  transition: transform 0.3s ease-in-out;
+}
+.underline-animate {
+  position: relative;
+  display: inline-block;
+}
+.underline-animate::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  color: var(--bs-warning-dim);
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.underline-animate:hover::after {
+  transform: scaleX(1);
+}
+
+/* Product List */
+
+.productList .card{
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.productList .card img {
+  transition: transform 0.4s ease-in-out;
+}
+
+.productList .card:hover img {
+  transform: scale(1.1); 
+}
+
+.productList .btn{
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  bottom: 16%;
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out,transform 0.3s ease-in-out;
+  z-index: 2;
+  background-color: var(--bs-warning-dim);
+  color: white;
+  border: none;
+  font-size: 17px;
+  padding: 6px 5px;
+}
+
+.productList .card:hover .btn{
+  opacity: 1;
+  transform: translate(-50%, -60%);
+  color: white;
+}
+.card .btn:hover{
+  background-color: black !important;
+}
+.heart-span .bi-heart-fill,.heart-span .bi-heart{
+  color: var(--bs-warning-dim);
+}
+.likedList{
+  background-color: rgb(250, 250, 249);
+  width: 350px;
+  margin-left: -13px;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  /* overflow: hidden;*/
+  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+.likedList.show{
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+  overflow-y: auto;
+  pointer-events: auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.likedList.show li,.product-list{
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.scrollable-nav {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scrollable-nav::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollable-nav::-webkit-scrollbar {
+  display: none;
+}
+.highlight {
+  outline: 2px solid var(--bs-warning-dim);
+  outline-offset: 2px;
+  border-radius: 8px;
+  transition: outline 0.3s ease-in-out;
+}
+#dropdown-basic{
+  background-color: black;
+  color: white;
+  border: none;
+}
+
