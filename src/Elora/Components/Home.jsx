@@ -13,6 +13,10 @@ import banner1 from '../img/banner-1.jpg';
 import banner2 from '../img/banner-2.jpg';
 import banner3 from '../img/banner-3.jpg';
 
+import Collection1 from "../../assets/collection-1.jpg"
+import Collection2 from "../../assets/collection2.jpg"
+import Collection3 from "../../assets/collection3.jpg"
+
 import bag from '../img/time-bg.jpg';
 import './Components.css';
 
@@ -148,6 +152,7 @@ const Home = () => {
         settings={settings}
         reverse={false}
         bgClass="women-container"
+        imgSrc={Collection1}
         textClass="women-content"
         linkClass="women-content-hover"
         navigator={navigator}
@@ -161,6 +166,7 @@ const Home = () => {
         toggleHeart={toggleHeart}
         settings={settings}
         reverse={true}
+        imgSrc={Collection2}
         bgClass="men-container"
         textClass="men-content"
         linkClass="men-content-hover"
@@ -214,6 +220,7 @@ const Home = () => {
         toggleHeart={toggleHeart}
         settings={settings}
         reverse={false}
+        imgSrc={Collection3}
         bgClass="kids-container"
         textClass="women-content"
         linkClass="women-content-hover"

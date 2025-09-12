@@ -11,6 +11,7 @@ const CategorySlider = ({
   settings,
   reverse = false,
   bgClass,
+  imgSrc,
   textClass,
   linkClass,
   navigator,
@@ -21,7 +22,7 @@ const CategorySlider = ({
       {/* Banner Section */}
       <div className="col-lg-3 col-md-5 col-sm-5 col-10 mb-4 mb-md-0">
         <div className="position-relative" style={{ height: '400px', width: '100%' }}>
-          <div className={bgClass}></div>
+          <img className={bgClass} src={imgSrc} />
           <div className={`position-absolute text-white ${textClass} translate-middle`}>
             <h2 style={{ fontSize: '35px' }}>{label}</h2>
             <p

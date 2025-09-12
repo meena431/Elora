@@ -140,7 +140,6 @@
   border: none !important;
 }
 .women-container{
-  background-image: url(collection-1.jpg);
   height: 400px;
   width: 100%;
   background-size: cover;
@@ -168,7 +167,6 @@
 /* -------------Home - Men Section------------- */
 
 .men-container{
-  background-image: url(collection2.jpg);
   height: 400px;
   width:100% !important;
   background-size: cover;
@@ -209,7 +207,6 @@
 /* -------------Home - Kids Section------------- */
 
 .kids-container{
-  background-image: url(collection3.jpg);
   height: 400px;
   width:100% !important;
   background-size: cover;
