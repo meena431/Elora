@@ -9,10 +9,13 @@
   transition: all 0.5s ease-in-out;
 }
 
-.dropdown-item:hover, .dropdown-item:active, .dropdown-item.active {
+.dropdown-item:hover {
   background-color:  var(--bs-warning-dim) !important;
   color: #fff !important;
   transition: all 0.5s ease-in-out;
+}
+.dropdown-item.active{
+  background-color: transparent !important;
 }
 
 .no-hover-bg > .dropdown-toggle:hover,
@@ -167,9 +170,17 @@
 .footer-input{
   background-color:  rgb(84, 83, 83) !important;
   border: none !important;
+  width: 50% !important;
 }
 .footer-input::placeholder{
   color:  rgb(210, 209, 209) !important;
 }
+@media(max-width:430px){
+  .footer-input{
+    width: 100% !important;
+}
+
+}
+
 
 

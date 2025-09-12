@@ -1,0 +1,155 @@
+[
+    { 
+        "id": 1,
+        "category": "kids",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 2,
+        "category": "women",
+        "img": "/shop-page/product-2.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 3,
+        "category": "men",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 4,
+        "category": "women",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 5,
+        "category": "kids",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 6,
+        "category": "accessories",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 7,
+        "category": "kids",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 8,
+        "category": "women",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 9,
+        "category": "men",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 10,
+        "category": "women",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 11,
+        "category": "men",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 12,
+        "category": "accessories",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 13,
+        "category": "kids",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 14,
+        "category": "men",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 15,
+        "category": "accessories",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 16,
+        "category": "accessories",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 17,
+        "category": "men",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 18,
+        "category": "women",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    },
+    { 
+        "id": 19,
+        "category": "women",
+        "img": "/shop-page/product-1.jpg",
+        "name": "Cozy Chocolate OverCoat", 
+        "price": "1500", 
+        "arrival": "hot" 
+    }
+]
+

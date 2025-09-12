@@ -1,47 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useOutletContext } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useMemo } from 'react';
+import { products } from './Data';
 
-import product1 from '../img/shop-page/product-01.jpg';
-import product2 from '../img/shop-page/product-02.jpg';
-import product3 from '../img/shop-page/product-03.jpg';
-import product4 from '../img/shop-page/product-04.jpg';
-import product5 from '../img/shop-page/product-05.jpg';
-import product6 from '../img/shop-page/product-06.jpg';
-import product7 from '../img/shop-page/product-07.jpg';
-import product8 from '../img/shop-page/product-08.jpg';
-import product9 from '../img/shop-page/product-09.jpg';
-import product10 from '../img/shop-page/product-10.jpg';
-import product11 from '../img/shop-page/product-11.jpg';
-import product12 from '../img/shop-page/product-12.jpg';
-import product13 from '../img/shop-page/product-13.jpg';
-import product14 from '../img/shop-page/product-14.jpg';
-import product15 from '../img/shop-page/product-15.jpg';
 
 const Shop = () => {
+
   const { likedProducts, toggleHeart } = useOutletContext();
   const navigate = useNavigate();
-
-  const products = [
-    { id: 1, category: 'kids', img: product1, name: 'Cozy Chocolate OverCoat', price: '1500', arrival: 'new' },
-    { id: 2, category: 'women', img: product2, name: 'Classic White Shirt', price: '950', arrival: 'new' },
-    { id: 3, category: 'men', img: product3, name: 'Casual Blue Checks', price: '750', arrival: 'old' },
-    { id: 4, category: 'women', img: product4, name: 'Warm Brown OverCoat', price: '2500', arrival: 'new' },
-    { id: 5, category: 'kids', img: product5, name: 'Cool Breeze T-Shirt', price: '1300', arrival: 'old' },
-    { id: 6, category: 'accessories', img: product6, name: 'Midnight Watch', price: '510', arrival: 'old' },
-    { id: 7, category: 'women', img: product7, name: 'Crimson Hooded Coat', price: '2400', arrival: 'new' },
-    { id: 8, category: 'women', img: product8, name: 'Clean Cut T-Shirt', price: '1700', arrival: 'old' },
-    { id: 9, category: 'accessories', img: product9, name: 'DualTone Classic', price: '700', arrival: 'new' },
-    { id: 10, category: 'women', img: product10, name: 'Blackout T-Shirt', price: '955', arrival: 'old' },
-    { id: 11, category: 'men', img: product11, name: 'Blue Boxed Classic', price: '2100', arrival: 'old' },
-    { id: 12, category: 'accessories', img: product12, name: 'Classic Brown Belt', price: '350', arrival: 'new' },
-    { id: 13, category: 'kids', img: product13, name: 'Blue Core T-Shirt', price: '1240', arrival: 'new' },
-    { id: 14, category: 'women', img: product14, name: 'Black Rose Tee', price: '400', arrival: 'old' },
-    { id: 15, category: 'men', img: product15, name: 'Black Classic', price: '670', arrival: 'new' },
-  ];
-
+  const { id } = useParams();
+  
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
@@ -59,7 +29,7 @@ const Shop = () => {
   { label: 'Women', key: 'women', icon: 'bi bi-person-standing-dress' },
   { label: 'Kids', key: 'kids', icon: 'bi bi-emoji-smile-fill' },
   { label: 'Accessories', key: 'accessories', icon: 'bi bi-watch' },
-  { label: 'New Arrivals', key: 'new', icon: 'bi bi-stars' },
+  { label: 'Trending Now', key: 'hot', icon: 'bi bi-stars' },
   { label: 'Under ₹999', key: 'under999', icon: 'bi bi-cash-coin' },
 ];
 
@@ -75,7 +45,7 @@ const Shop = () => {
     .filter((product) => {
       if (selectCategory === 'All') return true;
       if (selectCategory === 'under999') return +product.price < 999;
-      if (selectCategory === 'new') return product.arrival === 'new';
+      if (selectCategory === 'hot') return product.arrival === 'hot';
       return product.category === selectCategory.toLowerCase();
     })
     .sort((a, b) => {
@@ -86,11 +56,10 @@ const Shop = () => {
     });
 }, [selectCategory, sortOption]);
 
-
   return (
-    <div className="container-fluid shop-carousel-wrapper">
+    <div className="container-fluid shop-carousel-wrapper pb-4 animate__animated animate__fadeIn animate__slow">
       {/* Home Navigation */}
-      <p className='p-2 px-3'>
+      <p className='p-3 px-3'>
         <span onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
           <i className="bi bi-house-door-fill"></i> Home
         </span>
@@ -123,8 +92,8 @@ const Shop = () => {
           </ul>
 
         </div>
-        {/* SortOption Button */}
 
+        {/* SortOption Button */}
         <Dropdown className='me-lg-2'>
           <Dropdown.Toggle variant="warning" id="dropdown-basic">
             <i className="bi bi-sort-down"></i> Sort By
@@ -141,7 +110,7 @@ const Shop = () => {
       {/* Product List */}
       <div className='productList pt-lg-2'>
         <div className='row px-3'>
-          {filteredProducts.map((product) => {
+          {filteredProducts.map((product,index) => {
             const isLiked = likedProducts[product.id];
             const discount = Math.floor(Math.random() * 21) + 10;
             const discountedPrice = Math.floor(product.price * (1 - discount / 100));
@@ -158,9 +127,9 @@ const Shop = () => {
                     style={{ height: '320px', objectPosition: 'top' }}
                   />
                   <div className='card-body text-center'>
-                    <span className='badge position-absolute top-0 start-0 m-2'
+                    <span className='badge position-absolute top-0 start-0 m-2 px-2 py-1 bg-danger'
                       style={{ backgroundColor: 'var(--bs-warning-dim)' }}>
-                      {product.arrival === 'new' ? 'New' : ''}
+                      {product.arrival === 'hot' ? 'Hot' : ''}
                     </span>
                     {/* Heart Button */}
                     <span className='badge position-absolute top-0 end-0 m-2 heart-span'>
@@ -184,9 +153,9 @@ const Shop = () => {
                       <span className="fw-bold text-dark">₹{discountedPrice}</span>
                     </div>
 
-                    {/* Add to Cart */}
-                    <button className='btn btn-outline-dark btn-sm'>
-                      Add to Cart
+                    {/* View Details */}
+                    <button className='btn' onClick={() => navigate(`/product/${product.id}`)}>
+                      View Details
                     </button>
                   </div>
                 </div>

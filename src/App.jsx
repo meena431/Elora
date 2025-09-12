@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import './App.css'
 import {createBrowserRouter,createRoutesFromElements,Route,RouterProvider} from 'react-router-dom';
 import RootLayout from './Elora/Layouts/RootLayout';
@@ -7,11 +7,10 @@ import About from './Elora/Components/About';
 import Shop from './Elora/Components/Shop';
 import Blog from './Elora/Components/Blog';
 import Contact from './Elora/Components/Contact';
-import Pages from './Elora/Components/Pages';
-import Men from './Elora/Components/Men';
-import Women from './Elora/Components/Women';
-import Kids from './Elora/Components/Kids';
-import Accessories from './Elora/Components/Accessories';
+import Offers from './Elora/Components/Offers';
+import CartPage from './Elora/Components/CartPage';
+import ProductDetails from './Elora/Components/ProductDetails';
+import { useCart } from './Elora/Context/CartContext';
 
 const App = () => {
   const [likedProducts, setLikedProducts] = useState(() => {
@@ -44,6 +43,9 @@ const App = () => {
 
   const likedCount = Object.keys(likedProducts).filter(item => item && item.id && item.name).length;
 
+  const { state,dispatch } = useCart();
+  
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route
@@ -53,19 +55,20 @@ const App = () => {
             likedProducts={likedProducts}
             likedCount={likedCount}
             toggleHeart={toggleHeart}
+            dispatch={dispatch}
           />
         }
       >
-        <Route index element={<Home />} />
+        <Route index element={<Home/>} />
         <Route path="about" element={<About />} />
         <Route path="shop" element={<Shop/>} />
+        <Route path="/product/:id" element={
+          <ProductDetails/>
+        }/>        
+        <Route path="cart" element={<CartPage/>} />
         <Route path="blog" element={<Blog />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="pages" element={<Pages />} />
-        <Route path="men" element={<Men />} />
-        <Route path="women" element={<Women />} />
-        <Route path="kids" element={<Kids />} />
-        <Route path="accessories" element={<Accessories />} />
+        <Route path="offers" element={<Offers />} />
       </Route>
     )
   );

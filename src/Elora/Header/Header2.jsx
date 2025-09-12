@@ -21,17 +21,17 @@ function Header2 () {
           <Navbar.Collapse id="main-nav">
             <Nav className="main-nav mx-auto align-items-lg-center text-white">
               <NavDropdown id="basic-nav-dropdown" menuVariant="dark" className="text-white no-hover-bg glass-dropdown pe-3 d-none d-lg-inline-block" title={<span className="d-inline-flex align-items-center text-white fw-bold me-2"><i className="bi bi-list me-2" />ALL&nbsp;DEPARTMENTS</span>}>
-                <NavDropdown.Item as={NavLink} to="men">Men</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="women">Women</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="kids">Kids</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="accessories">Accessories</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="shop">Men</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="shop">Women</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="shop">Kids</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="shop">Accessories</NavDropdown.Item>
               </NavDropdown>
               <NavLink to="/" className="nav-link text-white px-lg-5 fw-bold border-end border-secondary navbar-link">HOME</NavLink>
               <NavLink to="about" className="nav-link text-white px-lg-5 fw-bold border-end border-secondary navbar-link">ABOUT</NavLink>
               <NavLink to="shop" className="nav-link text-white px-lg-5 fw-bold border-end border-secondary navbar-link">SHOP</NavLink>
               <NavLink to="blog" className="nav-link text-white px-lg-5 fw-bold border-end border-secondary navbar-link">BLOG</NavLink>
               <NavLink to="contact" className="nav-link text-white px-lg-5 fw-bold border-end border-secondary navbar-link">CONTACT</NavLink>
-              <NavLink to="pages" className="nav-link text-white px-lg-5 fw-bold border-end border-secondary navbar-link">PAGES</NavLink>
+              <NavLink to="offers" className="nav-link text-white px-lg-5 fw-bold border-end border-secondary navbar-link">OFFERS</NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>

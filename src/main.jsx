@@ -5,11 +5,12 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'animate.css';
-import { BrowserRouter } from 'react-router-dom';
+import 'leaflet/dist/leaflet.css';
+import { CartProvider } from './Elora/Context/CartContext.jsx';
 
 createRoot(document.getElementById('root')).render(
-  // <BrowserRouter>
+  <CartProvider>
     <App />
-  // </BrowserRouter>
+  </CartProvider>
     
 )

@@ -6,13 +6,18 @@ import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { useState, useRef, useEffect } from 'react';
 import './Header.css';
+import { useCart } from '../Context/CartContext';
 
-const Header1 = ({ likedProducts = {}, likedCount = 0, toggleHeart }) => {
+const Header1 = ({ likedProducts = {}, likedCount = 0, toggleHeart}) => {
 
   const [showLikedList, setShowLikedList] = useState(false);
   const wishlistRef = useRef();
   const navigate = useNavigate();
   const location = useLocation();
+  const { state = {} } = useCart() || {};
+  const cartCount = state.cartItems?.length || 0;
+  const total = (Array.isArray(state.cartItems) ? state.cartItems : []).reduce((sum, item) => sum + item.price * item.quantity, 0);
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -133,12 +138,12 @@ const Header1 = ({ likedProducts = {}, likedCount = 0, toggleHeart }) => {
   </div>
 
             {/* Cart button */}
-            <Button variant="link" className="text-dark fs-3 p-0 position-relative">
+            <Button variant="link" className="text-dark fs-3 p-0 position-relative" onClick={() => navigate('/cart')}>
               <i className="bi bi-cart" />
-              <Badge text="white" className="position-absolute top-0 start-100 translate-middle badge-count" style={{ fontSize: '12px', backgroundColor: 'var(--bs-warning-dim) !important' }}>2</Badge>
+              <Badge text="white" className="position-absolute top-0 start-100 translate-middle badge-count" style={{ fontSize: '12px', backgroundColor: 'var(--bs-warning-dim) !important' }}>{cartCount}</Badge>
             </Button>
             {/* Cart Amount */}
-            <span className="fs-5 me-lg-3">₹&nbsp;450</span>
+            <span className="fs-5 me-lg-3">₹&nbsp;{total}</span>
             {/* Login Button */}
             <button className="btn d-flex align-items-center gap-2 text-white px-3 py-1 fs-5 me-lg-4" style={{ backgroundColor: 'black' }}>
               <i className="bi bi-person"/> Login
