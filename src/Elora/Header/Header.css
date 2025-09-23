@@ -15,7 +15,7 @@
   transition: all 0.5s ease-in-out;
 }
 .dropdown-item.active{
-  background-color: transparent !important;
+  background-color: var(--bs-warning-dim) !important;
 }
 
 .no-hover-bg > .dropdown-toggle:hover,

@@ -4,6 +4,7 @@ import { useOutletContext } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useMemo } from 'react';
 import { products } from './Data';
+import { useLocation } from 'react-router-dom';
 
 
 const Shop = () => {
@@ -11,6 +12,7 @@ const Shop = () => {
   const { likedProducts, toggleHeart } = useOutletContext();
   const navigate = useNavigate();
   const { id } = useParams();
+  const location = useLocation();
   
   useEffect(() => {
     const hash = window.location.hash;
@@ -34,6 +36,12 @@ const Shop = () => {
 ];
 
   const [selectCategory, setSelectCategory] = useState('All');
+
+  useEffect(() => {
+    if(location.state?.category){
+      setSelectCategory(location.state.category);
+    }
+  }, [location.state]);
   const [sortOption,setSortOption]=useState('');
 
   const handleCategoryChange = (category) => {

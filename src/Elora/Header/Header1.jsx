@@ -68,7 +68,7 @@ const Header1 = ({ likedProducts = {}, likedCount = 0, toggleHeart}) => {
               {showLikedList && (
               <ul
                 className={`position-absolute shadow rounded p-3 mt-1 likedList ${showLikedList ? 'show' : ''}`}
-                style={{ zIndex: 999, minWidth: '240px' }}
+                style={{ zIndex: 1050, minWidth: '240px' }}
               >
                 {validLikedItems.length > 0 ? (
                   validLikedItems.map((item) => {
