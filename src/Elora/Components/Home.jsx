@@ -128,11 +128,13 @@ const Home = () => {
             {img: banner2, label: "Women", link: "women"},
             {img: banner3, label: "Kids", link: "kids"}].map((item, index) => (
               <div key={index} className="col-10 col-md-6 col-lg-4 position-relative img-cont">
-                <img src={item.img} alt={item.label} className="img-fluid w-100 h-100 object-fit-cover rounded" />
+                <img src={item.img} alt={item.label} className="img-fluid w-100 h-100 object-fit-cover rounded"
+                style={{position:'relative',zIndex:'1',display:'block'}} />
                 <button
                   className="position-absolute top-50 start-50 translate-middle bg-white p-2 px-4 fs-5 border-0 fw-semibold"
+                  style={{zIndex:'5'}}
                   onClick={() => {
-                    navigator('/shop')
+                    navigator('/shop', {state: {category:item.link}})
                     window.scroll(0,0)
                   }}
                 >

@@ -28,7 +28,7 @@ const CategorySlider = ({
             <p
               className={linkClass}
               onClick={() => {
-                navigator('/shop');
+                navigator('/shop', { state: { category: label.toLowerCase().replace("'s", "") } });
                 window.scrollTo(0, 0);
               }}
               style={{

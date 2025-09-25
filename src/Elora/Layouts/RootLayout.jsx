@@ -9,7 +9,7 @@
         <header className="header1 bg-light" style={{zIndex: 1000}}>
           <Header1 likedProducts={likedProducts} toggleHeart={toggleHeart} likedCount={likedCount} cartCount={cartCount}/>
         </header>
-        <header className="sticky-top bg-white header2" style={{ top: '73px' ,zIndex:1040}}>
+        <header className="sticky-top bg-white header2" style={{ top: '73px' ,zIndex:900}}>
           <Header2 />
         </header>
         <main>

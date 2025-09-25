@@ -134,7 +134,7 @@
 .home-products .btn{
   font-size: 17px;
 }
-.home-products .btn:hover {
+.home-products .btn:hover,.search-box .btn:hover {
   background-color: black !important;
   color: white;
   border: none !important;
@@ -611,4 +611,14 @@ input:focus{
   font-size: 20px !important;  
   font-weight: 600;
   color: #222;  
+}
+
+
+/* -------------Search Bar------------ */
+.cancel-btn{
+  font-size: 16px;
+}
+
+.cancel-btn:hover{
+  color: var(--bs-warning) !important;
 }

@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { useState, useRef, useEffect } from 'react';
 import './Header.css';
 import { useCart } from '../Context/CartContext';
+import SearchBar from '../Components/SearchBar';
 
 const Header1 = ({ likedProducts = {}, likedCount = 0, toggleHeart}) => {
 
@@ -45,14 +46,7 @@ const Header1 = ({ likedProducts = {}, likedCount = 0, toggleHeart}) => {
           </Navbar.Brand>
 
           {/* Search Button */}
-          <form className="flex-grow-1 order-2 order-lg-1 px-2 px-lg-3 w-100">
-            <div className="input-group rounded-pill w-100">
-              <input type="search" className="form-control border-light shadow-none px-3 py-2" placeholder="What do you Need ? ......" />
-              <button className="btn text-white px-3 fs-5" type="submit" style={{ backgroundColor: 'var(--bs-warning-dim)' }}>
-                <i className="bi bi-search" />
-              </button>
-            </div>
-          </form>
+          <SearchBar />
 
           {/* WishList */}
           <div className="icons-wrap d-flex align-items-center gap-3 order-1 order-lg-2 ms-lg-auto me-2">
@@ -76,7 +70,7 @@ const Header1 = ({ likedProducts = {}, likedCount = 0, toggleHeart}) => {
                     const discountedPrice = Math.floor(item.price * (1 - discount / 100));
 
                     return (
-                      <li key={item.id} className="d-flex align-items-start justify-content-between gap-2 mb-2">
+                      <li key={item.id} className="wishlist-li d-flex align-items-start justify-content-between gap-2 mb-2 position-relative">
                         <div
                          onClick={() => {
                             if (location.pathname !== '/shop') {
@@ -114,11 +108,9 @@ const Header1 = ({ likedProducts = {}, likedCount = 0, toggleHeart}) => {
                   <span style={{color:'var(--bs-warning-dim)'}}>₹{discountedPrice}</span>
               </div>
             </div>
-          </div>
-
             {/* Remove Button */}
             <button
-              className="btn btn-sm btn-light"
+              className="btn btn-sm flex-shrink-0 position-absolute end-0"
               style={{ marginTop: '6px' }}
               onClick={(e) => {
                 e.stopPropagation();
@@ -127,6 +119,9 @@ const Header1 = ({ likedProducts = {}, likedCount = 0, toggleHeart}) => {
             >
               <i className="bi bi-trash text-black fs-5"></i>
             </button>
+          </div>
+
+            
           </li>
           );
         })

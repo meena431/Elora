@@ -79,6 +79,12 @@
 .main-nav .nav-link {
   padding: 13px 0;
 }
+.wishlist-li {
+  overflow: visible !important;
+  align-items: center !important;
+  width: 275px !important;
+}
+
 
 /* ---------------- Responsive Navbar Adjustments ---------------- */
 
