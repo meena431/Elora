@@ -26,49 +26,69 @@ const CartPage = () => {
   const [phone, setPhone] = useState("");
 
   const handleCheckout = () => {
-
-    if (!country || !stateName || !address || !phone) {
+  // ✅ Validate required fields
+  if (!country || !stateName || !address.trim() || !phone.trim()) {
     Swal.fire({
       icon: "error",
       title: "Missing Details ⚠️",
-      text: "Please fill all shipping details before checkout.",
-      confirmButtonColor: "var(--bs-warning-dim)",
+      text: "Please fill in all shipping details before checkout.",
+      confirmButtonColor: "var(--bs-warning)",
       background: "#fff",
       color: "#333",
-      customClass:{
-        title:'my-swal-title'
+      customClass: {
+        title: "my-swal-title",
+        popup: "rounded-3 shadow-sm"
       }
     });
     return;
-    }
+  }
 
+  // ✅ Phone number format check (optional)
+  const validPh = /^[0-9]{10}$/;
+  if (!validPh.test(phone)) {
     Swal.fire({
-      icon: "success",
-      title: "Checkout Successful 🛍️",
-      html: `
-        <div style="font-size:14px; margin-top:5px; line-height:1.4;">
-          Thank you for shopping with <b>Elora</b>! <br/>
-          Your order has been placed successfully. <br/>
-          We'll send you a confirmation email & keep you updated.
-        </div>
-      `,
-      width:'450px',
-      padding:'1.5rem',
-      showConfirmButton: true,
-      confirmButtonText: "Continue Shopping",
-      confirmButtonColor: "var(--bs-warning-dim)",
+      icon: "error",
+      title: "Invalid Phone 📱",
+      text: "Please enter a valid 10-digit phone number.",
+      confirmButtonColor: "var(--bs-warning)",
       background: "#fff",
       color: "#333",
-      customClass:{
-        title:'my-swal-title'
+      customClass: {
+        title: "my-swal-title",
+        popup: "rounded-3 shadow-sm"
       }
-    }).then((result) => {
-      if(result.isConfirmed ){
-        navigate('/shop')
-      }
-    })
+    });
+    return;
+  }
 
-  };
+  // ✅ Success alert
+  Swal.fire({
+    icon: "success",
+    title: "Checkout Successful 🛍️",
+    html: `
+      <div style="font-size:14px; margin-top:5px; line-height:1.5;">
+        Thank you for shopping with <b>Elora</b>! <br/>
+        Your order has been placed successfully. <br/>
+        We'll send you a confirmation email and keep you updated.
+      </div>
+    `,
+    width: 450,
+    padding: "1.5rem",
+    showConfirmButton: true,
+    confirmButtonText: "Continue Shopping",
+    confirmButtonColor: "var(--bs-warning)",
+    background: "#fff",
+    color: "#333",
+    customClass: {
+      title: "my-swal-title",
+      popup: "rounded-3 shadow-sm"
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      navigate("/shop");
+    }
+  });
+};
 
   if (state.cartItems.length === 0) {
     return <h2 className="p-5 text-center">Your cart is empty</h2>;
@@ -164,7 +184,7 @@ const CartPage = () => {
         </div>
 
         {/* RIGHT - SHIPPING + TOTAL */}
-        <div className="col-md-4">
+        <div className="col-md-4 pb-4">
           <div className="sticky-top" style={{ top: "90px" }}>
             <div className="card shadow-sm">
             {/* TOTAL */}
