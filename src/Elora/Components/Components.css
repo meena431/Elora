@@ -624,7 +624,7 @@ input:focus{
   color: var(--bs-warning) !important;
 }
 .active-highlight {
-  background-color: #ffc107 !important; /* yellow */
+  background-color: var(--bs-warning) !important; /* yellow */
   color:white !important;
 }
 
