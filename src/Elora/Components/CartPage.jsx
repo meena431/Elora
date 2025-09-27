@@ -5,9 +5,6 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CartPage = () => {
-  useEffect(() =>{
-    window.scroll(0,0)
-  })
 
   const navigate = useNavigate();
   const { state, dispatch } = useCart();

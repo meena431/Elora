@@ -77,8 +77,15 @@
   border-radius: 6px;
 }
 .img-cont button {
-  z-index: 2; }
-
+  z-index: 2; 
+}
+@media (max-width: 576px) {
+  .img-cont button {
+    font-size: 1rem !important;
+    background: rgba(255, 255, 255, 0.9); /* translucent white */
+    color: #000 !important;
+  }
+}
 
 .img-cont:hover::before {
   opacity: 1;

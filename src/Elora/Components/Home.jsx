@@ -132,6 +132,7 @@ const Home = () => {
                 style={{display:'block'}} />
                 <button
                   className="position-absolute top-50 start-50 translate-middle bg-white p-2 px-4 fs-5 border-0 fw-semibold"
+                  style={{zIndex:'2'}}
                   onClick={() => {
                     navigator('/shop', {state: {category:item.link}})
                     window.scroll(0,0)
