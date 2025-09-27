@@ -62,6 +62,43 @@ const SearchBar = () => {
     setShowSuggestions(false);
   };
 
+  const [activeIndex, setActiveIndex] = useState(-1);
+
+const filteredSuggestions = suggestions.filter((s) =>
+  s.toLowerCase().includes(searchQuery.toLowerCase())
+);
+
+const handleKeyDown = (e) => {
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    setActiveIndex((prev) =>
+      prev < filteredSuggestions.length - 1 ? prev + 1 : 0
+    );
+  }
+  if (e.key === "ArrowUp") {
+    e.preventDefault();
+    setActiveIndex((prev) =>
+      prev > 0 ? prev - 1 : filteredSuggestions.length - 1
+    );
+  }
+  if (e.key === "Enter") {
+    e.preventDefault();
+    if (activeIndex >= 0 && filteredSuggestions[activeIndex]) {
+      setSearchQuery(filteredSuggestions[activeIndex]);
+      setShowSuggestions(false);
+      handleSearch();
+    } else {
+      handleSearch();
+    }
+  }
+  if (e.key === "Escape") {
+    setShowSuggestions(false);
+    setActiveIndex(-1);
+    setSearchQuery("")
+  }
+};
+
+
   return (
     <div className="search-box position-relative flex-grow-1 order-2 order-lg-1 w-100"
     ref={suggestionsRef}>
@@ -74,18 +111,13 @@ const SearchBar = () => {
           onChange={(e) => {
             setSearchQuery(e.target.value);
             setShowSuggestions(true);
+            setActiveIndex(-1);
           }}
           onFocus={() => setShowSuggestions(true)}
-          onKeyDown={(e) =>{
-            if(e.key === "Enter"){
-              e.preventDefault();
-              handleSearch();
-            }
-            if(e.key ==="Escape"){
-              navigate(-1)
-            }
-          }}
+          onKeyDown={handleKeyDown}
         />
+
+        
 
         {searchQuery && (
         // Cancel Button
@@ -107,29 +139,29 @@ const SearchBar = () => {
 
       {/* Suggestions */}
       {showSuggestions && (
-        <ul
-          className="list-group position-absolute mt-1 w-100 shadow-sm"
-          style={{ zIndex: 1000}}
-        >
-          {suggestions
-            .filter((s) =>
-              s.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-            .map((s, i) => (
-              <li
-                key={i}
-                className="list-group-item list-group-item-action"
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  setSearchQuery(s); // put suggestion into search box
-                  setShowSuggestions(false);
-                }}
-              >
-                {s}
-              </li>
-            ))}
-        </ul>
-      )}
+  <ul
+    className="list-group position-absolute mt-1 w-100 shadow-sm"
+    style={{ zIndex: 1000 }}
+  >
+    {filteredSuggestions.map((s, i) => (
+      <li
+        key={i}
+        className={`list-group-item list-group-item-action ${
+          i === activeIndex ? "active-highlight" : ""
+        }`}
+        style={{ cursor: "pointer" }}
+        onClick={() => {
+          setSearchQuery(s);
+          setShowSuggestions(false);
+          handleSearch();
+        }}
+      >
+        {s}
+      </li>
+    ))}
+  </ul>
+)}
+
     </div>
   );
 };

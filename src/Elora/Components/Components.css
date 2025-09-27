@@ -73,7 +73,7 @@
   opacity: 0;
   transform: scale(0.9);
   transition: transform 0.2s ease, opacity 0.2s ease;
-  z-index: 2;
+  z-index: 90;
   pointer-events: none;
   border-radius: 6px;
 }
@@ -616,9 +616,15 @@ input:focus{
 
 /* -------------Search Bar------------ */
 .cancel-btn{
+  font-weight:lighter;
   font-size: 16px;
 }
 
 .cancel-btn:hover{
   color: var(--bs-warning) !important;
 }
+.active-highlight {
+  background-color: #ffc107 !important; /* yellow */
+  color:white !important;
+}
+

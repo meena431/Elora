@@ -67,7 +67,7 @@ const Footer = () => {
             <h5 className='text-white'>Join Our Newsletter Now</h5>
             <p className='text-white-50 mt-4'>Get E-mail updates about our latest shop and special offers.</p>
             <div className='d-flex flex-wrap gap-1'>
-              <input type="email" placeholder='Enter Your Mail' className='form-control ps-3 px-lg-4 px-md-2 py-2 flex-grow-1 footer-input'/>
+              <input type="email" placeholder='Enter Your Mail' className='form-control ps-3 px-lg-4 px-md-2 py-2 flex-grow-1 footer-input text-white'/>
               <button style={{backgroundColor:'var(--bs-warning-dim)',color:'white',border:'none',padding:'10px 15px',fontSize:'14px',borderRadius:'5px'}}>SUBSCRIBE</button>
             </div>
           </div>
