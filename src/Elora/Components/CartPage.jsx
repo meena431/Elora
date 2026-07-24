@@ -23,7 +23,7 @@ const CartPage = () => {
   const [phone, setPhone] = useState("");
 
   const handleCheckout = () => {
-  // ✅ Validate required fields
+  
   if (!country || !stateName || !address.trim() || !phone.trim()) {
     Swal.fire({
       icon: "error",
@@ -40,7 +40,6 @@ const CartPage = () => {
     return;
   }
 
-  // ✅ Phone number format check (optional)
   const validPh = /^[0-9]{10}$/;
   if (!validPh.test(phone)) {
     Swal.fire({
@@ -58,7 +57,6 @@ const CartPage = () => {
     return;
   }
 
-  // ✅ Success alert
   Swal.fire({
     icon: "success",
     title: "Checkout Successful 🛍️",

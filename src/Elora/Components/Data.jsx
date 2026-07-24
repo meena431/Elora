@@ -72,5 +72,3 @@ export const perks = [
   { id: 2, icon: <i className="bi bi-clock"></i>, perk: 'DELIVERY TIME', perk_cont: 'If Good have Problems' },
   { id: 3, icon: <i className="bi bi-shield-lock"></i>, perk: 'SECURE PAYMENT', perk_cont: '100% Secure Payment' },
 ];
-
-
